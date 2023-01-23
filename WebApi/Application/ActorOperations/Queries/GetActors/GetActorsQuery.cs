@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using WebApi.DbOperations;
 using WebApi.Models.Entities;
 
@@ -17,7 +18,7 @@ public class GetActorsQuery
 
     public List<ActorViewModel> Handle()
     {
-        var result = _dbContext.Actors.OrderBy(x => x.ActorId).ToList();
+        var result = _dbContext.Actors.Include(x => x.Movies).OrderBy(x => x.ActorId).ToList();
         List<ActorViewModel> list = _mapper.Map<List<ActorViewModel>>(result);
         return list;
     }
@@ -25,7 +26,7 @@ public class GetActorsQuery
 
 public class ActorViewModel
 {
-    public int Id { get; set; }
+    public int ActorId { get; set; }
     public string Name { get; set; }
     public string Surname { get; set; }
     public virtual ICollection<Movie> Movies { get; set; }

@@ -1,5 +1,7 @@
 using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Application.ActorOperations.Commands;
 using WebApi.Application.ActorOperations.Queries;
 using WebApi.DbOperations;
 using WebApi.Services;
@@ -42,5 +44,31 @@ public class ActorController : ControllerBase
         var result = query.Handle();
 
         return Ok(result);
+    }
+
+    [HttpPost]
+    public IActionResult AddActor([FromBody] CreateActorModel newActor)
+    {
+        CreateActorCommand command = new CreateActorCommand(_dbContext, _mapper);
+        command.Model = newActor;
+
+        CreateActorCommandValidator validator = new CreateActorCommandValidator();
+        validator.ValidateAndThrow(command);
+
+        command.Handle();
+        return Ok();
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeleteActor(int id)
+    {
+        DeleteActorCommand command = new DeleteActorCommand(_dbContext, _mapper);
+        command.Id = id;
+
+        DeleteActorCommandValidator validator = new DeleteActorCommandValidator();
+        validator.ValidateAndThrow(command);
+
+        command.Handle();
+        return Ok();
     }
 }

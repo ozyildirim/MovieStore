@@ -8,6 +8,6 @@ public class GetActorDetailQueryValidator : AbstractValidator<GetActorDetailQuer
     {
         RuleFor(command => command.Id)
             .GreaterThanOrEqualTo(0)
-            .WithMessage("BookId must be 0 or greater!");
+            .WithMessage("Actor id must be 0 or greater!");
     }
 }
