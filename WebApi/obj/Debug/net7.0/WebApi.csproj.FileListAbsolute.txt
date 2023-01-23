@@ -46,3 +46,6 @@
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/obj/Debug/net7.0/WebApi.pdb
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/obj/Debug/net7.0/WebApi.genruntimeconfig.cache
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/obj/Debug/net7.0/ref/WebApi.dll
+/Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.AspNetCore.JsonPatch.dll
+/Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+/Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll
