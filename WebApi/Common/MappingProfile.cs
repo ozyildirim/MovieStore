@@ -24,5 +24,6 @@ public class MappingProfile : Profile
 
         // Movie Mappings
         CreateMap<Movie, MovieViewModel>();
+        CreateMap<Movie, MovieDetailViewModel>();
     }
 }

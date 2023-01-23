@@ -1,5 +1,7 @@
 using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Application.MovieOperations.Commands;
 using WebApi.Application.MovieOperations.Queries;
 using WebApi.DbOperations;
 
@@ -33,28 +35,28 @@ public class MovieController : ControllerBase
         return Ok(result);
     }
 
-    // [HttpGet("{id}")]
-    // public IActionResult GetDirectorDetail(int id)
-    // {
-    //     GetDirectorDetailQuery query = new GetDirectorDetailQuery(_dbContext, _mapper);
-    //     query.Id = id;
-    //     var result = query.Handle();
+    [HttpGet("{id}")]
+    public IActionResult GetMovieDetail(int id)
+    {
+        GetMovieDetailQuery query = new GetMovieDetailQuery(_dbContext, _mapper);
+        query.Id = id;
+        var result = query.Handle();
 
-    //     return Ok(result);
-    // }
+        return Ok(result);
+    }
 
-    // [HttpPost]
-    // public IActionResult AddDirector([FromBody] CreateDirectorModel newDirector)
-    // {
-    //     CreateDirectorCommand command = new CreateDirectorCommand(_dbContext, _mapper);
-    //     command.Model = newDirector;
+    [HttpPost]
+    public IActionResult AddMovie([FromBody] CreateMovieModel newMovie)
+    {
+        CreateMovieCommand command = new CreateMovieCommand(_dbContext, _mapper);
+        command.Model = newMovie;
 
-    //     CreateDirectorCommandValidator validator = new CreateDirectorCommandValidator();
-    //     validator.ValidateAndThrow(command);
+        CreateMovieCommandValidator validator = new CreateMovieCommandValidator();
+        validator.ValidateAndThrow(command);
 
-    //     command.Handle();
-    //     return Ok();
-    // }
+        command.Handle();
+        return Ok();
+    }
 
     // [HttpDelete("{id}")]
     // public IActionResult DeleteDirector(int id)
