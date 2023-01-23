@@ -10,5 +10,6 @@ public class Customer
     public int CustomerId { get; set; }
     public string? Name { get; set; }
     public string? Surname { get; set; }
-    public ICollection<Movie> PurchasedMovies { get; set; }
+    public virtual ICollection<Movie> PurchasedMovies { get; set; }
+    public bool isActive { get; set; } = true;
 }

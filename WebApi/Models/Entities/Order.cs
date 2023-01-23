@@ -7,4 +7,5 @@ public class Order
     public int MovieId { get; set; }
     public double Price { get; set; }
     public DateTime OrderDate { get; set; }
+    public bool isActive { get; set; } = true;
 }
