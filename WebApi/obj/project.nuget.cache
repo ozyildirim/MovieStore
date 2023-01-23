@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1P9XLF3nNMZwL9ICA5cvw2geGQYunHtyJrM5+RXl8xYOgf3JXBKuDaJcx5giOmJ6MFEavyq8ffDcX/DdRPuEfQ==",
+  "dgSpecHash": "Z9droL63RKmMTIeYnpTFwPq5zTOVadCp02I6hNL+Ovcu3S5MX3OClO0pp8j6LOfL0l4o9IPy6VI+LjG+ZC2Yag==",
   "success": true,
   "projectFilePath": "/Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/WebApi.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "/Users/yildirimkutay/.nuget/packages/microsoft.entityframeworkcore.design/7.0.2/microsoft.entityframeworkcore.design.7.0.2.nupkg.sha512",
     "/Users/yildirimkutay/.nuget/packages/microsoft.entityframeworkcore.inmemory/7.0.2/microsoft.entityframeworkcore.inmemory.7.0.2.nupkg.sha512",
     "/Users/yildirimkutay/.nuget/packages/microsoft.entityframeworkcore.relational/7.0.2/microsoft.entityframeworkcore.relational.7.0.2.nupkg.sha512",
+    "/Users/yildirimkutay/.nuget/packages/microsoft.entityframeworkcore.tools/7.0.2/microsoft.entityframeworkcore.tools.7.0.2.nupkg.sha512",
     "/Users/yildirimkutay/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "/Users/yildirimkutay/.nuget/packages/microsoft.extensions.caching.abstractions/7.0.0/microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "/Users/yildirimkutay/.nuget/packages/microsoft.extensions.caching.memory/7.0.0/microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
@@ -30,6 +31,8 @@
     "/Users/yildirimkutay/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
     "/Users/yildirimkutay/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/Users/yildirimkutay/.nuget/packages/newtonsoft.json/13.0.2/newtonsoft.json.13.0.2.nupkg.sha512",
+    "/Users/yildirimkutay/.nuget/packages/npgsql/7.0.1/npgsql.7.0.1.nupkg.sha512",
+    "/Users/yildirimkutay/.nuget/packages/npgsql.entityframeworkcore.postgresql/7.0.1/npgsql.entityframeworkcore.postgresql.7.0.1.nupkg.sha512",
     "/Users/yildirimkutay/.nuget/packages/swashbuckle.aspnetcore/6.4.0/swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "/Users/yildirimkutay/.nuget/packages/swashbuckle.aspnetcore.swagger/6.4.0/swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "/Users/yildirimkutay/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.4.0/swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
