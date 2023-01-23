@@ -71,4 +71,18 @@ public class ActorController : ControllerBase
         command.Handle();
         return Ok();
     }
+
+    [HttpPut("{id}")]
+    public IActionResult UpdateActor([FromBody] UpdateActorModel updatedActor, int id)
+    {
+        UpdateActorCommand command = new UpdateActorCommand(_dbContext, _mapper);
+        command.Id = id;
+        command.Model = updatedActor;
+
+        UpdateActorCommandValidator validator = new UpdateActorCommandValidator();
+        validator.ValidateAndThrow(command);
+
+        command.Handle();
+        return Ok();
+    }
 }

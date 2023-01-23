@@ -22,7 +22,7 @@ public class GetActorDetailQuery
         var actor = _dbContext.Actors
             .Include(x => x.Movies)
             .ThenInclude(x => x.Director)
-            .SingleOrDefault(x => x.ActorId == Id);
+            .SingleOrDefault(x => x.Id == Id);
 
         if (actor is null)
         {

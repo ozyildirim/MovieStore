@@ -18,7 +18,7 @@ public class GetActorsQuery
 
     public List<ActorViewModel> Handle()
     {
-        var result = _dbContext.Actors.Include(x => x.Movies).OrderBy(x => x.ActorId).ToList();
+        var result = _dbContext.Actors.Include(x => x.Movies).OrderBy(x => x.Id).ToList();
         List<ActorViewModel> list = _mapper.Map<List<ActorViewModel>>(result);
         return list;
     }
@@ -26,7 +26,7 @@ public class GetActorsQuery
 
 public class ActorViewModel
 {
-    public int ActorId { get; set; }
+    public int Id { get; set; }
     public string Name { get; set; }
     public string Surname { get; set; }
     public virtual ICollection<Movie> Movies { get; set; }

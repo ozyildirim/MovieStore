@@ -3,13 +3,14 @@ using WebApi.DbOperations;
 
 namespace WebApi.Application.ActorOperations.Commands;
 
-public class DeleteActorCommand
+public class UpdateActorCommand
 {
     private readonly MovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
+    public UpdateActorModel Model { get; set; }
     public int Id { get; set; }
 
-    public DeleteActorCommand(MovieStoreDbContext dbContext, IMapper mapper)
+    public UpdateActorCommand(MovieStoreDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext;
         _mapper = mapper;
@@ -20,11 +21,17 @@ public class DeleteActorCommand
         var actor = _dbContext.Actors.SingleOrDefault(x => x.Id == Id);
 
         if (actor is null)
-        {
             throw new InvalidOperationException("Actor not found!");
-        }
 
-        _dbContext.Actors.Remove(actor);
+        actor.Name = Model.Name;
+        actor.Surname = Model.Surname;
+
         _dbContext.SaveChanges();
     }
+}
+
+public class UpdateActorModel
+{
+    public string? Name { get; set; }
+    public string? Surname { get; set; }
 }
