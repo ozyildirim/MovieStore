@@ -5,30 +5,36 @@ using WebApi.Models.Entities;
 
 namespace WebApi.Application.OrderOperations.Queries;
 
-public class GetOrdersQuery
+public class GetOrderDetailQuery
 {
+    public int Id { get; set; }
     private readonly MovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
 
-    public GetOrdersQuery(MovieStoreDbContext dbContext, IMapper mapper)
+    public GetOrderDetailQuery(MovieStoreDbContext context, IMapper mapper)
     {
-        _dbContext = dbContext;
+        _dbContext = context;
         _mapper = mapper;
     }
 
-    public List<OrderViewModel> Handle()
+    public OrderDetailViewModel Handle()
     {
-        var orders = _dbContext.Orders
+        var order = _dbContext.Orders
             .Include(x => x.Customer)
             .Include(x => x.Movie)
-            .OrderBy(x => x.Id)
-            .ToList<Order>();
-        List<OrderViewModel> list = _mapper.Map<List<OrderViewModel>>(orders);
-        return list;
+            .SingleOrDefault(x => x.Id == Id);
+
+        if (order is null)
+        {
+            throw new InvalidOperationException("Order not found!");
+        }
+
+        OrderDetailViewModel vm = _mapper.Map<OrderDetailViewModel>(order);
+        return vm;
     }
 }
 
-public class OrderViewModel
+public class OrderDetailViewModel
 {
     public int Id { get; set; }
     public int CustomerId { get; set; }

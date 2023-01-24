@@ -5,6 +5,8 @@ using WebApi.Application.DirectorOperations.Commands;
 using WebApi.Application.DirectorOperations.Queries;
 using WebApi.Application.MovieOperations.Commands;
 using WebApi.Application.MovieOperations.Queries;
+using WebApi.Application.OrderOperations.Commands;
+using WebApi.Application.OrderOperations.Queries;
 using WebApi.Models.Entities;
 
 namespace WebApi.Common;
@@ -27,5 +29,10 @@ public class MappingProfile : Profile
         CreateMap<Movie, MovieViewModel>();
         CreateMap<Movie, MovieDetailViewModel>();
         CreateMap<CreateMovieModel, Movie>();
+
+        // Order Mappings
+        CreateMap<Order, OrderViewModel>();
+        CreateMap<Order, OrderDetailViewModel>();
+        CreateMap<CreateOrderModel, Order>();
     }
 }
