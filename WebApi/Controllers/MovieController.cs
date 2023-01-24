@@ -1,6 +1,8 @@
 using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Application.ActorOperations.Commands;
+using WebApi.Application.DirectorOperations.Commands;
 using WebApi.Application.MovieOperations.Commands;
 using WebApi.Application.MovieOperations.Queries;
 using WebApi.DbOperations;
@@ -58,30 +60,30 @@ public class MovieController : ControllerBase
         return Ok();
     }
 
-    // [HttpDelete("{id}")]
-    // public IActionResult DeleteDirector(int id)
-    // {
-    //     DeleteDirectorCommand command = new DeleteDirectorCommand(_dbContext, _mapper);
-    //     command.Id = id;
+    [HttpDelete("{id}")]
+    public IActionResult DeleteMovie(int id)
+    {
+        DeleteMovieCommand command = new DeleteMovieCommand(_dbContext, _mapper);
+        command.Id = id;
 
-    //     DeleteDirectorCommandValidator validator = new DeleteDirectorCommandValidator();
-    //     validator.ValidateAndThrow(command);
+        DeleteMovieCommandValidator validator = new DeleteMovieCommandValidator();
+        validator.ValidateAndThrow(command);
 
-    //     command.Handle();
-    //     return Ok();
-    // }
+        command.Handle();
+        return Ok();
+    }
 
-    // [HttpPut("{id}")]
-    // public IActionResult UpdateDirector([FromBody] UpdateDirectorModel updatedDirector, int id)
-    // {
-    //     UpdateDirectorCommand command = new UpdateDirectorCommand(_dbContext, _mapper);
-    //     command.Id = id;
-    //     command.Model = updatedDirector;
+    [HttpPut("{id}")]
+    public IActionResult UpdateMovie([FromBody] UpdateMovieModel updatedMovie, int id)
+    {
+        UpdateMovieCommand command = new UpdateMovieCommand(_dbContext, _mapper);
+        command.Id = id;
+        command.Model = updatedMovie;
 
-    //     UpdateDirectorCommandValidator validator = new UpdateDirectorCommandValidator();
-    //     validator.ValidateAndThrow(command);
+        UpdateMovieCommandValidator validator = new UpdateMovieCommandValidator();
+        validator.ValidateAndThrow(command);
 
-    //     command.Handle();
-    //     return Ok();
-    // }
+        command.Handle();
+        return Ok();
+    }
 }
