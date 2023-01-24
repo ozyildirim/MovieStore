@@ -1,14 +1,17 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApi.Models.Entities;
 
 public class Movie
 {
-    public int Id { get; set; }
+    [Key]
+    public int MovieId { get; set; }
     public string? Title { get; set; }
     public DateTime Year { get; set; }
-    public virtual Director Director { get; set; }
-    public virtual ICollection<Actor> Actors { get; set; }
-    public virtual ICollection<Customer> PurchasedCustomers { get; set; }
-    public bool isActive { get; set; } = true; 
+    public int DirectorId { get; set; }
+    public Director Director { get; set; }
+    public double Price { get; set; }
+    public bool isActive { get; set; } = true;
+    public ICollection<ActorMovie> ActorMovies { get; set; }
 }

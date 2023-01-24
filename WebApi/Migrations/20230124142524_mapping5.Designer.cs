@@ -12,8 +12,8 @@ using WebApi.DbOperations;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(MovieStoreDbContext))]
-    [Migration("20230123214412_lazy loading-migration")]
-    partial class lazyloadingmigration
+    [Migration("20230124142524_mapping5")]
+    partial class mapping5
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,9 +21,6 @@ namespace WebApi.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.2")
-                .HasAnnotation("Proxies:ChangeTracking", false)
-                .HasAnnotation("Proxies:CheckEquality", false)
-                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -41,21 +38,6 @@ namespace WebApi.Migrations
                     b.HasIndex("MoviesId");
 
                     b.ToTable("ActorMovie");
-                });
-
-            modelBuilder.Entity("CustomerMovie", b =>
-                {
-                    b.Property<int>("PurchasedCustomersCustomerId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("PurchasedMoviesId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("PurchasedCustomersCustomerId", "PurchasedMoviesId");
-
-                    b.HasIndex("PurchasedMoviesId");
-
-                    b.ToTable("CustomerMovie");
                 });
 
             modelBuilder.Entity("WebApi.Models.Entities.Actor", b =>
@@ -135,6 +117,9 @@ namespace WebApi.Migrations
                     b.Property<int>("DirectorId")
                         .HasColumnType("integer");
 
+                    b.Property<double>("Price")
+                        .HasColumnType("double precision");
+
                     b.Property<string>("Title")
                         .HasColumnType("text");
 
@@ -190,21 +175,6 @@ namespace WebApi.Migrations
                     b.HasOne("WebApi.Models.Entities.Movie", null)
                         .WithMany()
                         .HasForeignKey("MoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("CustomerMovie", b =>
-                {
-                    b.HasOne("WebApi.Models.Entities.Customer", null)
-                        .WithMany()
-                        .HasForeignKey("PurchasedCustomersCustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebApi.Models.Entities.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("PurchasedMoviesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

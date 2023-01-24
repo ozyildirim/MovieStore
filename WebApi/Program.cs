@@ -27,9 +27,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddDbContext<MovieStoreDbContext>(
-    opt =>
-        opt.UseLazyLoadingProxies()
-            .UseNpgsql(builder.Configuration.GetConnectionString("SampleDbConnection"))
+    opt => opt.UseNpgsql(builder.Configuration.GetConnectionString("SampleDbConnection"))
 );
 
 var app = builder.Build();

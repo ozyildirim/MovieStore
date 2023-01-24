@@ -17,7 +17,7 @@ public class DeleteActorCommand
 
     public void Handle()
     {
-        var actor = _dbContext.Actors.SingleOrDefault(x => x.Id == Id);
+        var actor = _dbContext.Actors.SingleOrDefault(x => x.ActorId == Id);
 
         if (actor is null)
         {

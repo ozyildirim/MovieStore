@@ -7,9 +7,9 @@ namespace WebApi.Models.Entities;
 
 public class Director
 {
-    public int Id { get; set; }
+    public int DirectorId { get; set; }
     public string? Name { get; set; }
     public string? Surname { get; set; }
-    public virtual ICollection<Movie> Movies { get; set; }
     public bool isActive { get; set; } = true;
+    public ICollection<Movie> Movies { get; set; }
 }

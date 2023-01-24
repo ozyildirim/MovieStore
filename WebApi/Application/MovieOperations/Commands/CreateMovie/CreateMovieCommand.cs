@@ -33,7 +33,7 @@ public class CreateMovieCommand
 
 public class CreateMovieModel
 {
-    public string? Title { get; set; }
-    public DateTime? Year { get; set; }
-    public int? DirectorId { get; set; }
+    public string Title { get; set; }
+    public DateTime Year { get; set; }
+    public int DirectorId { get; set; }
 }

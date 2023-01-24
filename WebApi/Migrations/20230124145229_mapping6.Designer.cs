@@ -12,8 +12,8 @@ using WebApi.DbOperations;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(MovieStoreDbContext))]
-    [Migration("20230123162602_second-migration")]
-    partial class secondmigration
+    [Migration("20230124145229_mapping6")]
+    partial class mapping6
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,36 +24,6 @@ namespace WebApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
-
-            modelBuilder.Entity("ActorMovie", b =>
-                {
-                    b.Property<int>("ActorsActorId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("MoviesId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("ActorsActorId", "MoviesId");
-
-                    b.HasIndex("MoviesId");
-
-                    b.ToTable("ActorMovie");
-                });
-
-            modelBuilder.Entity("CustomerMovie", b =>
-                {
-                    b.Property<int>("PurchasedCustomersCustomerId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("PurchasedMoviesId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("PurchasedCustomersCustomerId", "PurchasedMoviesId");
-
-                    b.HasIndex("PurchasedMoviesId");
-
-                    b.ToTable("CustomerMovie");
-                });
 
             modelBuilder.Entity("WebApi.Models.Entities.Actor", b =>
                 {
@@ -69,9 +39,27 @@ namespace WebApi.Migrations
                     b.Property<string>("Surname")
                         .HasColumnType("text");
 
+                    b.Property<bool>("isActive")
+                        .HasColumnType("boolean");
+
                     b.HasKey("ActorId");
 
                     b.ToTable("Actors");
+                });
+
+            modelBuilder.Entity("WebApi.Models.Entities.ActorMovie", b =>
+                {
+                    b.Property<int>("ActorId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("ActorId", "MovieId");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("ActorMovies");
                 });
 
             modelBuilder.Entity("WebApi.Models.Entities.Customer", b =>
@@ -88,6 +76,9 @@ namespace WebApi.Migrations
                     b.Property<string>("Surname")
                         .HasColumnType("text");
 
+                    b.Property<bool>("isActive")
+                        .HasColumnType("boolean");
+
                     b.HasKey("CustomerId");
 
                     b.ToTable("Customers");
@@ -95,11 +86,11 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Models.Entities.Director", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("DirectorId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("DirectorId"));
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
@@ -107,21 +98,27 @@ namespace WebApi.Migrations
                     b.Property<string>("Surname")
                         .HasColumnType("text");
 
-                    b.HasKey("Id");
+                    b.Property<bool>("isActive")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("DirectorId");
 
                     b.ToTable("Directors");
                 });
 
             modelBuilder.Entity("WebApi.Models.Entities.Movie", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("MovieId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("MovieId"));
 
                     b.Property<int>("DirectorId")
                         .HasColumnType("integer");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("double precision");
 
                     b.Property<string>("Title")
                         .HasColumnType("text");
@@ -129,7 +126,10 @@ namespace WebApi.Migrations
                     b.Property<DateTime>("Year")
                         .HasColumnType("timestamp with time zone");
 
-                    b.HasKey("Id");
+                    b.Property<bool>("isActive")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("MovieId");
 
                     b.HasIndex("DirectorId");
 
@@ -156,39 +156,31 @@ namespace WebApi.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("double precision");
 
+                    b.Property<bool>("isActive")
+                        .HasColumnType("boolean");
+
                     b.HasKey("Id");
 
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("ActorMovie", b =>
+            modelBuilder.Entity("WebApi.Models.Entities.ActorMovie", b =>
                 {
-                    b.HasOne("WebApi.Models.Entities.Actor", null)
-                        .WithMany()
-                        .HasForeignKey("ActorsActorId")
+                    b.HasOne("WebApi.Models.Entities.Actor", "Actor")
+                        .WithMany("ActorMovies")
+                        .HasForeignKey("ActorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebApi.Models.Entities.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("CustomerMovie", b =>
-                {
-                    b.HasOne("WebApi.Models.Entities.Customer", null)
-                        .WithMany()
-                        .HasForeignKey("PurchasedCustomersCustomerId")
+                    b.HasOne("WebApi.Models.Entities.Movie", "Movie")
+                        .WithMany("ActorMovies")
+                        .HasForeignKey("MovieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebApi.Models.Entities.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("PurchasedMoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Actor");
+
+                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("WebApi.Models.Entities.Movie", b =>
@@ -202,9 +194,19 @@ namespace WebApi.Migrations
                     b.Navigation("Director");
                 });
 
+            modelBuilder.Entity("WebApi.Models.Entities.Actor", b =>
+                {
+                    b.Navigation("ActorMovies");
+                });
+
             modelBuilder.Entity("WebApi.Models.Entities.Director", b =>
                 {
                     b.Navigation("Movies");
+                });
+
+            modelBuilder.Entity("WebApi.Models.Entities.Movie", b =>
+                {
+                    b.Navigation("ActorMovies");
                 });
 #pragma warning restore 612, 618
         }

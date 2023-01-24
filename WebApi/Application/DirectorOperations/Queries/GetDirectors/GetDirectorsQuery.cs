@@ -18,7 +18,10 @@ public class GetDirectorsQuery
 
     public List<DirectorViewModel> Handle()
     {
-        var result = _dbContext.Directors.Include(x => x.Movies).OrderBy(x => x.Id).ToList();
+        var result = _dbContext.Directors
+            .Include(x => x.Movies)
+            .OrderBy(x => x.DirectorId)
+            .ToList();
         List<DirectorViewModel> list = _mapper.Map<List<DirectorViewModel>>(result);
         return list;
     }

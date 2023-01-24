@@ -18,7 +18,7 @@ public class UpdateDirectorCommand
 
     public void Handle()
     {
-        var director = _dbContext.Directors.SingleOrDefault(x => x.Id == Id);
+        var director = _dbContext.Directors.SingleOrDefault(x => x.DirectorId == Id);
 
         if (director is null)
             throw new InvalidOperationException("Director not found!");

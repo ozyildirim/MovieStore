@@ -17,7 +17,7 @@ public class DeleteDirectorCommand
 
     public void Handle()
     {
-        var director = _dbContext.Directors.SingleOrDefault(x => x.Id == Id);
+        var director = _dbContext.Directors.SingleOrDefault(x => x.DirectorId == Id);
 
         if (director is null)
         {

@@ -17,7 +17,7 @@ public class DeleteMovieCommand
 
     public void Handle()
     {
-        var movie = _dbContext.Movies.SingleOrDefault(x => x.Id == Id);
+        var movie = _dbContext.Movies.SingleOrDefault(x => x.MovieId == Id);
 
         if (movie is null)
         {

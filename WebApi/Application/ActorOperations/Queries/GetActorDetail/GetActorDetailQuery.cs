@@ -20,9 +20,8 @@ public class GetActorDetailQuery
     public ActorDetailViewModel Handle()
     {
         var actor = _dbContext.Actors
-            .Include(x => x.Movies)
-            .ThenInclude(x => x.Director)
-            .SingleOrDefault(x => x.Id == Id);
+            .Include(x => x.ActorMovies)
+            .SingleOrDefault(x => x.ActorId == Id);
 
         if (actor is null)
         {
