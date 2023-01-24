@@ -3,6 +3,7 @@ using WebApi.Application.ActorOperations.Commands;
 using WebApi.Application.ActorOperations.Queries;
 using WebApi.Application.DirectorOperations.Commands;
 using WebApi.Application.DirectorOperations.Queries;
+using WebApi.Application.MovieOperations.Commands;
 using WebApi.Application.MovieOperations.Queries;
 using WebApi.Models.Entities;
 
@@ -25,5 +26,6 @@ public class MappingProfile : Profile
         // Movie Mappings
         CreateMap<Movie, MovieViewModel>();
         CreateMap<Movie, MovieDetailViewModel>();
+        CreateMap<CreateMovieModel, Movie>();
     }
 }

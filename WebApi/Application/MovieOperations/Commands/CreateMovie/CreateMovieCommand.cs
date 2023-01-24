@@ -22,10 +22,10 @@ public class CreateMovieCommand
 
         if (movie is not null)
         {
-            throw new InvalidOperationException("Actor already exists!");
+            throw new InvalidOperationException("Movie already exists!");
         }
 
-        movie = _mapper.Map<Movie>(movie);
+        movie = _mapper.Map<Movie>(Model);
         _dbContext.Movies.Add(movie);
         _dbContext.SaveChanges();
     }
