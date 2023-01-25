@@ -1,6 +1,8 @@
 using AutoMapper;
 using WebApi.Application.ActorOperations.Commands;
 using WebApi.Application.ActorOperations.Queries;
+using WebApi.Application.CustomerOperations.Commands;
+using WebApi.Application.CustomerOperations.Queries;
 using WebApi.Application.DirectorOperations.Commands;
 using WebApi.Application.DirectorOperations.Queries;
 using WebApi.Application.MovieOperations.Commands;
@@ -34,5 +36,11 @@ public class MappingProfile : Profile
         CreateMap<Order, OrderViewModel>();
         CreateMap<Order, OrderDetailViewModel>();
         CreateMap<CreateOrderModel, Order>();
+
+        // Customer Mappings
+        CreateMap<Customer, CustomerViewModel>();
+        CreateMap<Customer, CustomerDetailViewModel>();
+        CreateMap<CreateCustomerModel, Customer>();
+
     }
 }

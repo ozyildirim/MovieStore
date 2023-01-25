@@ -24,7 +24,8 @@ public class DeleteActorCommand
             throw new InvalidOperationException("Actor not found!");
         }
 
-        _dbContext.Actors.Remove(actor);
+        // _dbContext.Actors.Remove(actor);
+        actor.isActive = false;
         _dbContext.SaveChanges();
     }
 }

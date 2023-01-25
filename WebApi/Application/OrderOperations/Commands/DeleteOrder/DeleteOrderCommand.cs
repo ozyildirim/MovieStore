@@ -24,7 +24,8 @@ public class DeleteOrderCommand
             throw new InvalidOperationException("Order not found!");
         }
 
-        _dbContext.Orders.Remove(order);
+        // _dbContext.Orders.Remove(order);
+        order.isActive = false;
         _dbContext.SaveChanges();
     }
 }

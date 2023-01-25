@@ -24,7 +24,7 @@ public class DeleteDirectorCommand
             throw new InvalidOperationException("Director not found!");
         }
 
-        _dbContext.Directors.Remove(director);
+        director.isActive = false;
         _dbContext.SaveChanges();
     }
 }

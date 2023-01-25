@@ -29,7 +29,7 @@ public class UpdateMovieCommand
         movie.Year = Model.Year != default ? Model.Year : movie.Year;
         movie.DirectorId = Model.DirectorId != default ? Model.DirectorId : movie.DirectorId;
         movie.Price = Model.Price != default ? Model.Price : movie.Price;
-
+    
         _dbContext.SaveChanges();
     }
 }

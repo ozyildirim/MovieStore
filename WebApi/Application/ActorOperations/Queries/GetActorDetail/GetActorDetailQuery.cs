@@ -35,7 +35,7 @@ public class GetActorDetailQuery
 
 public class ActorDetailViewModel
 {
-    public int Id { get; set; }
+    public int ActorId { get; set; }
     public string? Name { get; set; }
     public string? Surname { get; set; }
     public ICollection<Movie>? Movies { get; set; }
