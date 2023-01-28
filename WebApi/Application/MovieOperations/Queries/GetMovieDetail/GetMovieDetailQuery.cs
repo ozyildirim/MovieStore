@@ -8,10 +8,10 @@ namespace WebApi.Application.MovieOperations.Queries;
 public class GetMovieDetailQuery
 {
     public int Id { get; set; }
-    private readonly MovieStoreDbContext _dbContext;
+    private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
 
-    public GetMovieDetailQuery(MovieStoreDbContext context, IMapper mapper)
+    public GetMovieDetailQuery(IMovieStoreDbContext context, IMapper mapper)
     {
         _dbContext = context;
         _mapper = mapper;

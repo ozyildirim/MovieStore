@@ -11,12 +11,12 @@ namespace WebApi.Controllers;
 [Route("api/[controller]s")]
 public class DirectorController : ControllerBase
 {
-    private readonly MovieStoreDbContext _dbContext;
+    private readonly IMovieStoreDbContext _dbContext;
     private readonly ILogger<DirectorController> _logger;
     private readonly IMapper _mapper;
 
     public DirectorController(
-        MovieStoreDbContext dbContext,
+        IMovieStoreDbContext dbContext,
         ILogger<DirectorController> logger,
         IMapper mapper
     )

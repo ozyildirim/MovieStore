@@ -7,10 +7,10 @@ namespace WebApi.Application.MovieOperations.Commands;
 public class CreateMovieCommand
 {
     public CreateMovieModel Model { get; set; }
-    private readonly MovieStoreDbContext _dbContext;
+    private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
 
-    public CreateMovieCommand(MovieStoreDbContext dbContext, IMapper mapper)
+    public CreateMovieCommand(IMovieStoreDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext;
         _mapper = mapper;

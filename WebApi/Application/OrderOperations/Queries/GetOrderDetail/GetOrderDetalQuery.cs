@@ -8,10 +8,10 @@ namespace WebApi.Application.OrderOperations.Queries;
 public class GetOrderDetailQuery
 {
     public int Id { get; set; }
-    private readonly MovieStoreDbContext _dbContext;
+    private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
 
-    public GetOrderDetailQuery(MovieStoreDbContext context, IMapper mapper)
+    public GetOrderDetailQuery(IMovieStoreDbContext context, IMapper mapper)
     {
         _dbContext = context;
         _mapper = mapper;

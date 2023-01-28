@@ -5,11 +5,11 @@ namespace WebApi.Application.DirectorOperations.Commands;
 
 public class DeleteDirectorCommand
 {
-    private readonly MovieStoreDbContext _dbContext;
+    private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
     public int Id { get; set; }
 
-    public DeleteDirectorCommand(MovieStoreDbContext dbContext, IMapper mapper)
+    public DeleteDirectorCommand(IMovieStoreDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext;
         _mapper = mapper;

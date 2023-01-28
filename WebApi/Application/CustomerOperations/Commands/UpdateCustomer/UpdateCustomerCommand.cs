@@ -5,12 +5,12 @@ namespace WebApi.Application.CustomerOperations.Commands;
 
 public class UpdateCustomerCommand
 {
-    private readonly MovieStoreDbContext _dbContext;
+    private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
     public UpdateCustomerModel Model { get; set; }
     public int Id { get; set; }
 
-    public UpdateCustomerCommand(MovieStoreDbContext dbContext, IMapper mapper)
+    public UpdateCustomerCommand(IMovieStoreDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext;
         _mapper = mapper;

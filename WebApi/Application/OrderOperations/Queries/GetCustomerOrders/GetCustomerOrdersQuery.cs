@@ -7,11 +7,11 @@ namespace WebApi.Application.OrderOperations.Queries;
 
 public class GetCustomerOrdersQuery
 {
-    private readonly MovieStoreDbContext _dbContext;
+    private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
     public int CustomerId { get; set; }
 
-    public GetCustomerOrdersQuery(MovieStoreDbContext dbContext, IMapper mapper)
+    public GetCustomerOrdersQuery(IMovieStoreDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext;
         _mapper = mapper;

@@ -1,10 +1,6 @@
 using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
-using WebApi.Application.ActorOperations.Commands;
-using WebApi.Application.DirectorOperations.Commands;
-using WebApi.Application.MovieOperations.Commands;
-using WebApi.Application.MovieOperations.Queries;
 using WebApi.Application.OrderOperations.Commands;
 using WebApi.Application.OrderOperations.Queries;
 using WebApi.DbOperations;
@@ -15,12 +11,12 @@ namespace WebApi.Controllers;
 [Route("api/[controller]s")]
 public class OrderController : ControllerBase
 {
-    private readonly MovieStoreDbContext _dbContext;
+    private readonly IMovieStoreDbContext _dbContext;
     private readonly ILogger<OrderController> _logger;
     private readonly IMapper _mapper;
 
     public OrderController(
-        MovieStoreDbContext dbContext,
+        IMovieStoreDbContext dbContext,
         ILogger<OrderController> logger,
         IMapper mapper
     )

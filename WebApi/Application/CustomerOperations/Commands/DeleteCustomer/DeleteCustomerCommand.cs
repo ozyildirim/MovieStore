@@ -5,11 +5,11 @@ namespace WebApi.Application.CustomerOperations.Commands;
 
 public class DeleteCustomerCommand
 {
-    private readonly MovieStoreDbContext _dbContext;
+    private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
     public int Id { get; set; }
 
-    public DeleteCustomerCommand(MovieStoreDbContext dbContext, IMapper mapper)
+    public DeleteCustomerCommand(IMovieStoreDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext;
         _mapper = mapper;

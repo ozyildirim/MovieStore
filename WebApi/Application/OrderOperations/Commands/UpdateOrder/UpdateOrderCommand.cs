@@ -5,12 +5,12 @@ namespace WebApi.Application.OrderOperations.Commands;
 
 public class UpdateOrderCommand
 {
-    private readonly MovieStoreDbContext _dbContext;
+    private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
     public UpdateOrderrModel Model { get; set; }
     public int Id { get; set; }
 
-    public UpdateOrderCommand(MovieStoreDbContext dbContext, IMapper mapper)
+    public UpdateOrderCommand(IMovieStoreDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext;
         _mapper = mapper;

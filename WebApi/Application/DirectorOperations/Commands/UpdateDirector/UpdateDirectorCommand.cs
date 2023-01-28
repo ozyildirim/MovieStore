@@ -5,12 +5,12 @@ namespace WebApi.Application.DirectorOperations.Commands;
 
 public class UpdateDirectorCommand
 {
-    private readonly MovieStoreDbContext _dbContext;
+    private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
     public UpdateDirectorModel Model { get; set; }
     public int Id { get; set; }
 
-    public UpdateDirectorCommand(MovieStoreDbContext dbContext, IMapper mapper)
+    public UpdateDirectorCommand(IMovieStoreDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext;
         _mapper = mapper;

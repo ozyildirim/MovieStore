@@ -7,10 +7,10 @@ namespace WebApi.Application.DirectorOperations.Commands;
 public class CreateDirectorCommand
 {
     public CreateDirectorModel Model { get; set; }
-    private readonly MovieStoreDbContext _dbContext;
+    private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
 
-    public CreateDirectorCommand(MovieStoreDbContext dbContext, IMapper mapper)
+    public CreateDirectorCommand(IMovieStoreDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext;
         _mapper = mapper;

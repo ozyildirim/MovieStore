@@ -3,7 +3,7 @@ using WebApi.Models.Entities;
 
 namespace WebApi.DbOperations;
 
-public class MovieStoreDbContext : DbContext
+public class MovieStoreDbContext : DbContext, IMovieStoreDbContext
 {
     public MovieStoreDbContext(DbContextOptions<MovieStoreDbContext> options) : base(options) { }
 
@@ -24,5 +24,10 @@ public class MovieStoreDbContext : DbContext
         //     .HasOne<Director>(s => s.Director)
         //     .WithMany(d => d.Movies)
         //     .HasForeignKey(s => s.DirectorId);
+    }
+
+    public override int SaveChanges()
+    {
+        return base.SaveChanges();
     }
 }

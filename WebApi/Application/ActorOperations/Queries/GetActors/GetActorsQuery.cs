@@ -1,16 +1,15 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using WebApi.DbOperations;
 using WebApi.Models.Entities;
 
 namespace WebApi.Application.ActorOperations.Queries;
 
 public class GetActorsQuery
 {
-    private readonly MovieStoreDbContext _dbContext;
+    private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
 
-    public GetActorsQuery(MovieStoreDbContext dbContext, IMapper mapper)
+    public GetActorsQuery(IMovieStoreDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext;
         _mapper = mapper;

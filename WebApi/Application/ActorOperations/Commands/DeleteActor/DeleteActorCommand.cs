@@ -5,11 +5,11 @@ namespace WebApi.Application.ActorOperations.Commands;
 
 public class DeleteActorCommand
 {
-    private readonly MovieStoreDbContext _dbContext;
+    private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
     public int Id { get; set; }
 
-    public DeleteActorCommand(MovieStoreDbContext dbContext, IMapper mapper)
+    public DeleteActorCommand(IMovieStoreDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext;
         _mapper = mapper;
