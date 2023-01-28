@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.CustomerOperations.Commands;
 using WebApi.Application.CustomerOperations.Queries;
 using WebApi.DbOperations;
-using WebApi.Services;
 
 namespace WebApi.Controllers;
 

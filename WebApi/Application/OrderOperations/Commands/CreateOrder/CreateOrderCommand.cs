@@ -37,7 +37,6 @@ public class CreateOrderModel
 {
     public double Price { get; set; }
     public DateTime OrderDate { get; set; }
-    public bool isActive { get; set; } = true;
 
     public int? CustomerId { get; set; }
     public int? MovieId { get; set; }

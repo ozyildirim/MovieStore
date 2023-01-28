@@ -1,8 +1,9 @@
 using FluentValidation;
+using WebApi.Application.OrderOperations.Queries;
 
 namespace WebApi.Application.ActorOperations.Queries;
 
-public class GetOrderDetailQueryValidator : AbstractValidator<GetActorDetailQuery>
+public class GetOrderDetailQueryValidator : AbstractValidator<GetOrderDetailQuery>
 {
     public GetOrderDetailQueryValidator()
     {

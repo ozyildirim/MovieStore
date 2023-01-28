@@ -49,6 +49,16 @@ public class OrderController : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet("GetCustomerOrders/{customerId}")]
+    public IActionResult GetCustomerOrders(int customerId)
+    {
+        GetCustomerOrdersQuery query = new GetCustomerOrdersQuery(_dbContext, _mapper);
+        query.CustomerId = customerId;
+        var result = query.Handle();
+
+        return Ok(result);
+    }
+
     [HttpPost]
     public IActionResult AddOrder([FromBody] CreateOrderModel newOrder)
     {

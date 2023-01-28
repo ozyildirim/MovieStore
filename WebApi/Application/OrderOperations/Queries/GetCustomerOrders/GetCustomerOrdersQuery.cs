@@ -5,12 +5,13 @@ using WebApi.Models.Entities;
 
 namespace WebApi.Application.OrderOperations.Queries;
 
-public class GetOrdersQuery
+public class GetCustomerOrdersQuery
 {
     private readonly MovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
+    public int CustomerId { get; set; }
 
-    public GetOrdersQuery(MovieStoreDbContext dbContext, IMapper mapper)
+    public GetCustomerOrdersQuery(MovieStoreDbContext dbContext, IMapper mapper)
     {
         _dbContext = dbContext;
         _mapper = mapper;
@@ -19,7 +20,7 @@ public class GetOrdersQuery
     public List<OrderViewModel> Handle()
     {
         var orders = _dbContext.Orders
-            .Where(x => x.isActive == true)
+            .Where(x => x.CustomerId == CustomerId)
             .Include(x => x.Customer)
             .Include(x => x.Movie)
             .OrderBy(x => x.Id)
@@ -27,15 +28,4 @@ public class GetOrdersQuery
         List<OrderViewModel> list = _mapper.Map<List<OrderViewModel>>(orders);
         return list;
     }
-}
-
-public class OrderViewModel
-{
-    public int Id { get; set; }
-    public int CustomerId { get; set; }
-    public Customer Customer { get; set; }
-    public int MovieId { get; set; }
-    public Movie Movie { get; set; }
-    public double Price { get; set; }
-    public DateTime OrderDate { get; set; }
 }
