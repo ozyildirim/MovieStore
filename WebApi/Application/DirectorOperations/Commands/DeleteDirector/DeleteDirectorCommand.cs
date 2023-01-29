@@ -23,6 +23,14 @@ public class DeleteDirectorCommand
             throw new InvalidOperationException("Director not found!");
         }
 
+        var movies = _dbContext.Movies.Where(movie => movie.DirectorId == director.DirectorId);
+        if (movies is not null)
+        {
+            throw new InvalidOperationException(
+                "The movies that director are related must be deleted first!"
+            );
+        }
+
         director.IsActive = false;
         _dbContext.SaveChanges();
     }

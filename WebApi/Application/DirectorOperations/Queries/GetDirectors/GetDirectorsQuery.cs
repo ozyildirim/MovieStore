@@ -28,7 +28,7 @@ public class GetDirectorsQuery
 
 public class DirectorViewModel
 {
-    public int Id { get; set; }
+    public int DirectorId { get; set; }
     public string? Name { get; set; }
     public string? Surname { get; set; }
     public virtual ICollection<Movie>? Movies { get; set; }
