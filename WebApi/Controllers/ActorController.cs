@@ -56,6 +56,7 @@ public class ActorController : ControllerBase
         validator.ValidateAndThrow(command);
 
         command.Handle();
+        _logger.LogInformation($"Actor {newActor.Name} created successfully!");
         return Ok();
     }
 
@@ -69,6 +70,8 @@ public class ActorController : ControllerBase
         validator.ValidateAndThrow(command);
 
         command.Handle();
+        _logger.LogInformation($"Actor with ID {id} deleted successfully!");
+
         return Ok();
     }
 
@@ -83,6 +86,8 @@ public class ActorController : ControllerBase
         validator.ValidateAndThrow(command);
 
         command.Handle();
+        _logger.LogInformation($"Actor with ID {id} updated successfully!");
+
         return Ok();
     }
 }

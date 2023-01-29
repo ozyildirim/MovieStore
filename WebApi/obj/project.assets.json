@@ -31,6 +31,70 @@
           "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
+      "AWS.Logger.AspNetCore/3.3.0": {
+        "type": "package",
+        "dependencies": {
+          "AWS.Logger.Core": "3.1.0",
+          "Microsoft.Extensions.Configuration": "2.1.0",
+          "Microsoft.Extensions.DependencyInjection": "2.1.0",
+          "Microsoft.Extensions.Logging": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/AWS.Logger.AspNetCore.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWS.Logger.AspNetCore.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "AWS.Logger.Core/3.1.0": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.CloudWatchLogs": "3.7.0.5"
+        },
+        "compile": {
+          "lib/netstandard2.0/AWS.Logger.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWS.Logger.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "AWSSDK.CloudWatchLogs/3.7.0.5": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[3.7.0.6, 3.8.0)"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.CloudWatchLogs.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.CloudWatchLogs.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "AWSSDK.Core/3.7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/AWSSDK.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Castle.Core/5.1.0": {
         "type": "package",
         "dependencies": {
@@ -338,6 +402,22 @@
         },
         "build": {
           "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Configuration/2.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Microsoft.Extensions.Configuration.Abstractions/7.0.0": {
@@ -863,6 +943,93 @@
         "automapper.extensions.microsoft.dependencyinjection.nuspec",
         "icon.png",
         "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll"
+      ]
+    },
+    "AWS.Logger.AspNetCore/3.3.0": {
+      "sha512": "iOvXAfPfmZZ/WdOasrZVznDp76PskEd9JyVswe1c01PwkuNj2qm7EueHJmEOwdgqc3bj5jW1TIIqXnthRryGwA==",
+      "type": "package",
+      "path": "aws.logger.aspnetcore/3.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "aws.logger.aspnetcore.3.3.0.nupkg.sha512",
+        "aws.logger.aspnetcore.nuspec",
+        "icon.png",
+        "lib/netstandard2.0/AWS.Logger.AspNetCore.dll",
+        "lib/netstandard2.0/AWS.Logger.AspNetCore.pdb",
+        "lib/netstandard2.0/AWS.Logger.AspNetCore.xml"
+      ]
+    },
+    "AWS.Logger.Core/3.1.0": {
+      "sha512": "ruKBNASE/IBnVZhyeUy0ueuxq1CuMtDHNpU2cqGUg12SxvClkqqY/PVXyM6I4ltsMh/1tF8WdpTBj9k3Fw/PgA==",
+      "type": "package",
+      "path": "aws.logger.core/3.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "aws.logger.core.3.1.0.nupkg.sha512",
+        "aws.logger.core.nuspec",
+        "icon.png",
+        "lib/net45/AWS.Logger.Core.dll",
+        "lib/net45/AWS.Logger.Core.pdb",
+        "lib/net45/AWS.Logger.Core.xml",
+        "lib/netstandard2.0/AWS.Logger.Core.dll",
+        "lib/netstandard2.0/AWS.Logger.Core.pdb",
+        "lib/netstandard2.0/AWS.Logger.Core.xml"
+      ]
+    },
+    "AWSSDK.CloudWatchLogs/3.7.0.5": {
+      "sha512": "E9mEMaCVStnkzrs2gb35AbMz8xEGCqMGSnk+yyFJbkmdu9a+w5MVsuwRMkHbqiKn1bs5FTpdQJlV/NtgSYeHbA==",
+      "type": "package",
+      "path": "awssdk.cloudwatchlogs/3.7.0.5",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.CloudWatchLogs.CodeAnalysis.dll",
+        "awssdk.cloudwatchlogs.3.7.0.5.nupkg.sha512",
+        "awssdk.cloudwatchlogs.nuspec",
+        "lib/net35/AWSSDK.CloudWatchLogs.dll",
+        "lib/net35/AWSSDK.CloudWatchLogs.pdb",
+        "lib/net35/AWSSDK.CloudWatchLogs.xml",
+        "lib/net45/AWSSDK.CloudWatchLogs.dll",
+        "lib/net45/AWSSDK.CloudWatchLogs.pdb",
+        "lib/net45/AWSSDK.CloudWatchLogs.xml",
+        "lib/netcoreapp3.1/AWSSDK.CloudWatchLogs.dll",
+        "lib/netcoreapp3.1/AWSSDK.CloudWatchLogs.pdb",
+        "lib/netcoreapp3.1/AWSSDK.CloudWatchLogs.xml",
+        "lib/netstandard2.0/AWSSDK.CloudWatchLogs.dll",
+        "lib/netstandard2.0/AWSSDK.CloudWatchLogs.pdb",
+        "lib/netstandard2.0/AWSSDK.CloudWatchLogs.xml",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
+    "AWSSDK.Core/3.7.0.6": {
+      "sha512": "2oHC7TTLUjwVIvyS3CmCGvDPpgfrm/2FrjRwB/jUPEGreHpGkvTZHgcWbiD9QkLx1BLWJMpP+jww7CXbTuZZXQ==",
+      "type": "package",
+      "path": "awssdk.core/3.7.0.6",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "awssdk.core.3.7.0.6.nupkg.sha512",
+        "awssdk.core.nuspec",
+        "lib/net35/AWSSDK.Core.dll",
+        "lib/net35/AWSSDK.Core.pdb",
+        "lib/net35/AWSSDK.Core.xml",
+        "lib/net45/AWSSDK.Core.dll",
+        "lib/net45/AWSSDK.Core.pdb",
+        "lib/net45/AWSSDK.Core.xml",
+        "lib/netcoreapp3.1/AWSSDK.Core.dll",
+        "lib/netcoreapp3.1/AWSSDK.Core.pdb",
+        "lib/netcoreapp3.1/AWSSDK.Core.xml",
+        "lib/netstandard2.0/AWSSDK.Core.dll",
+        "lib/netstandard2.0/AWSSDK.Core.pdb",
+        "lib/netstandard2.0/AWSSDK.Core.xml",
+        "tools/account-management.ps1"
       ]
     },
     "Castle.Core/5.1.0": {
@@ -1471,6 +1638,19 @@
         "microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
         "microsoft.extensions.caching.memory.nuspec",
         "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Configuration/2.1.0": {
+      "sha512": "SS8ce1GYQTkZoOq5bskqQ+m7xiXQjnKRiGfVNZkkX2SX0HpXNRsKnSUaywRRuCje3v2KT9xeacsM3J9/G2exsQ==",
+      "type": "package",
+      "path": "microsoft.extensions.configuration/2.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
+        "microsoft.extensions.configuration.2.1.0.nupkg.sha512",
+        "microsoft.extensions.configuration.nuspec"
       ]
     },
     "Microsoft.Extensions.Configuration.Abstractions/7.0.0": {
@@ -2276,6 +2456,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "AWS.Logger.AspNetCore >= 3.3.0",
       "AutoMapper >= 12.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.0",
       "FluentValidation >= 11.4.0",
@@ -2329,6 +2510,10 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
+          "AWS.Logger.AspNetCore": {
+            "target": "Package",
+            "version": "[3.3.0, )"
+          },
           "AutoMapper": {
             "target": "Package",
             "version": "[12.0.1, )"
