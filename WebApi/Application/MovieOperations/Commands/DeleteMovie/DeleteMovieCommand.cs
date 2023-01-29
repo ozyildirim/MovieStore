@@ -24,7 +24,7 @@ public class DeleteMovieCommand
             throw new InvalidOperationException("Movie not found!");
         }
 
-        movie.isActive = false;
+        movie.IsActive = false;
         _dbContext.SaveChanges();
     }
 }

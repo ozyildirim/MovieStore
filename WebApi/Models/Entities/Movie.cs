@@ -12,6 +12,6 @@ public class Movie
     public int? DirectorId { get; set; }
     public Director? Director { get; set; }
     public double? Price { get; set; }
-    public bool isActive { get; set; } = true;
+    public bool IsActive { get; set; } = true;
     public ICollection<ActorMovie>? ActorMovies { get; set; }
 }

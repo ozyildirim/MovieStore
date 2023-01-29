@@ -24,7 +24,7 @@ public class DeleteActorCommand
         }
 
         // _dbContext.Actors.Remove(actor);
-        actor.isActive = false;
+        actor.IsActive = false;
         _dbContext.SaveChanges();
     }
 }

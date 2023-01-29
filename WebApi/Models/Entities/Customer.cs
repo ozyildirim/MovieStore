@@ -10,5 +10,10 @@ public class Customer
     public int CustomerId { get; set; }
     public string? Name { get; set; }
     public string? Surname { get; set; }
-    public bool isActive { get; set; } = true;
+    public string? Email { get; set; }
+    public string? Password { get; set; }
+    public bool IsActive { get; set; } = true;
+
+    public string? RefreshToken { get; set; }
+    public DateTime? RefreshTokenExpireDate { get; set; }
 }

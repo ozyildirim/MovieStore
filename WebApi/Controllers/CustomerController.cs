@@ -2,8 +2,10 @@ using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.CustomerOperations.Commands;
+using WebApi.Application.CustomerOperations.CreateToken;
 using WebApi.Application.CustomerOperations.Queries;
 using WebApi.DbOperations;
+using WebApi.TokenOperations.Models;
 
 namespace WebApi.Controllers;
 
@@ -14,16 +16,19 @@ public class CustomerController : ControllerBase
     private readonly IMovieStoreDbContext _dbContext;
     private readonly ILogger<CustomerController> _logger;
     private readonly IMapper _mapper;
+    private readonly IConfiguration _configuration;
 
     public CustomerController(
         IMovieStoreDbContext dbContext,
         ILogger<CustomerController> logger,
-        IMapper mapper
+        IMapper mapper,
+        IConfiguration configuration
     )
     {
         _dbContext = dbContext;
         _logger = logger;
         _mapper = mapper;
+        _configuration = configuration;
     }
 
     [HttpGet]
@@ -83,5 +88,15 @@ public class CustomerController : ControllerBase
 
         command.Handle();
         return Ok();
+    }
+
+    [HttpPost("connect/token")]
+    public ActionResult<Token> CreateToken([FromBody] CreateTokenModel model)
+    {
+        CreateTokenCommand command = new CreateTokenCommand(_dbContext, _configuration);
+        command.Model = model;
+
+        var token = command.Handle();
+        return token;
     }
 }

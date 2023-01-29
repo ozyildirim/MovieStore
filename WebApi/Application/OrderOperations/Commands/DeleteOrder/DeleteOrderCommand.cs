@@ -25,7 +25,7 @@ public class DeleteOrderCommand
         }
 
         // _dbContext.Orders.Remove(order);
-        order.isActive = false;
+        order.IsActive = false;
         _dbContext.SaveChanges();
     }
 }

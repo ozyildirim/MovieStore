@@ -10,6 +10,7 @@
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Castle.Core.dll
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/FluentValidation.dll
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Humanizer.dll
+/Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.AspNetCore.JsonPatch.dll
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll
@@ -20,6 +21,11 @@
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Proxies.dll
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
+/Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Microsoft.OpenApi.dll
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Mono.TextTemplating.dll
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Newtonsoft.Json.dll
@@ -30,6 +36,7 @@
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/System.CodeDom.dll
+/Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/obj/Debug/net7.0/WebApi.csproj.AssemblyReference.cache
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/obj/Debug/net7.0/WebApi.GeneratedMSBuildEditorConfig.editorconfig
 /Users/yildirimkutay/Projects/dotnet-learning-path/patika/MovieStore/WebApi/obj/Debug/net7.0/WebApi.AssemblyInfoInputs.cache

@@ -23,7 +23,7 @@ public class DeleteDirectorCommand
             throw new InvalidOperationException("Director not found!");
         }
 
-        director.isActive = false;
+        director.IsActive = false;
         _dbContext.SaveChanges();
     }
 }

@@ -24,7 +24,7 @@ public class DeleteCustomerCommand
             throw new InvalidOperationException("Customer not found!");
         }
 
-        customer.isActive = false;
+        customer.IsActive = false;
         _dbContext.SaveChanges();
     }
 }

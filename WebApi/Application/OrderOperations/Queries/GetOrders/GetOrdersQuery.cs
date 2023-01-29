@@ -19,7 +19,7 @@ public class GetOrdersQuery
     public List<OrderViewModel> Handle()
     {
         var orders = _dbContext.Orders
-            .Where(x => x.isActive == true)
+            .Where(x => x.IsActive == true)
             .Include(x => x.Customer)
             .Include(x => x.Movie)
             .OrderBy(x => x.Id)

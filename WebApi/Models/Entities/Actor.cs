@@ -9,6 +9,6 @@ public class Actor
     public int ActorId { get; set; }
     public string? Name { get; set; }
     public string? Surname { get; set; }
-    public bool isActive { get; set; } = true;
+    public bool IsActive { get; set; } = true;
     public ICollection<ActorMovie> ActorMovies { get; set; }
 }
