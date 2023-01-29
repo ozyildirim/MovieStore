@@ -7,6 +7,7 @@ public class CreateMovieCommandValidator : AbstractValidator<CreateMovieCommand>
     public CreateMovieCommandValidator()
     {
         RuleFor(command => command.Model.Title)
+            .NotNull()
             .MinimumLength(4)
             .WithMessage("Movie name must be greater than 4 characters!");
 

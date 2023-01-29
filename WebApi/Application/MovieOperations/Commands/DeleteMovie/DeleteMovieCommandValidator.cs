@@ -7,6 +7,9 @@ public class DeleteMovieCommandValidator : AbstractValidator<DeleteMovieCommand>
 {
     public DeleteMovieCommandValidator()
     {
-        RuleFor(command => command.Id).NotNull().WithMessage("Movie id must be specified!");
+        RuleFor(command => command.Id)
+            .NotNull()
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Movie id must be specified!");
     }
 }

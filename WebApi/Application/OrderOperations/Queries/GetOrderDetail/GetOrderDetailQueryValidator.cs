@@ -8,6 +8,7 @@ public class GetOrderDetailQueryValidator : AbstractValidator<GetOrderDetailQuer
     public GetOrderDetailQueryValidator()
     {
         RuleFor(command => command.Id)
+            .NotNull()
             .GreaterThanOrEqualTo(0)
             .WithMessage("Order id must be 0 or greater!");
     }

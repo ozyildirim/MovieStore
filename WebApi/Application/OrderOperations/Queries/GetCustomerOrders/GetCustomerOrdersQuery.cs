@@ -9,7 +9,7 @@ public class GetCustomerOrdersQuery
 {
     private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
-    public int CustomerId { get; set; }
+    public int? CustomerId { get; set; }
 
     public GetCustomerOrdersQuery(IMovieStoreDbContext dbContext, IMapper mapper)
     {

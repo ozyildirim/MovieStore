@@ -7,7 +7,7 @@ public class DeleteOrderCommand
 {
     private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
-    public int Id { get; set; }
+    public int? Id { get; set; }
 
     public DeleteOrderCommand(IMovieStoreDbContext dbContext, IMapper mapper)
     {

@@ -7,7 +7,7 @@ namespace WebApi.Application.CustomerOperations.Queries;
 
 public class GetCustomerDetailQuery
 {
-    public int Id { get; set; }
+    public int? Id { get; set; }
     private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
 

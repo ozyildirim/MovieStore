@@ -7,7 +7,7 @@ namespace WebApi.Application.DirectorOperations.Queries;
 
 public class GetDirectorDetailQuery
 {
-    public int Id { get; set; }
+    public int? Id { get; set; }
     private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
 

@@ -8,6 +8,7 @@ public class UpdateMovieCommandValidator : AbstractValidator<UpdateMovieCommand>
     public UpdateMovieCommandValidator()
     {
         RuleFor(command => command.Model.Title)
+            .NotNull()
             .MinimumLength(4)
             .WithMessage("Movie title must be greater than 4 characters!");
 

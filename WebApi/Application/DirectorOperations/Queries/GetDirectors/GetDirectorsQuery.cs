@@ -1,6 +1,5 @@
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using WebApi.DbOperations;
 using WebApi.Models.Entities;
 
 namespace WebApi.Application.DirectorOperations.Queries;
@@ -30,7 +29,7 @@ public class GetDirectorsQuery
 public class DirectorViewModel
 {
     public int Id { get; set; }
-    public string Name { get; set; }
-    public string Surname { get; set; }
-    public virtual ICollection<Movie> Movies { get; set; }
+    public string? Name { get; set; }
+    public string? Surname { get; set; }
+    public virtual ICollection<Movie>? Movies { get; set; }
 }

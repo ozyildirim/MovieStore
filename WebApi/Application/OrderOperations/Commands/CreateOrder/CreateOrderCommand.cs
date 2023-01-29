@@ -35,8 +35,8 @@ public class CreateOrderCommand
 
 public class CreateOrderModel
 {
-    public double Price { get; set; }
-    public DateTime OrderDate { get; set; }
+    public double? Price { get; set; }
+    public DateTime? OrderDate { get; set; }
 
     public int? CustomerId { get; set; }
     public int? MovieId { get; set; }

@@ -7,7 +7,7 @@ namespace WebApi.Application.OrderOperations.Queries;
 
 public class GetOrderDetailQuery
 {
-    public int Id { get; set; }
+    public int? Id { get; set; }
     private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
 
@@ -37,10 +37,10 @@ public class GetOrderDetailQuery
 public class OrderDetailViewModel
 {
     public int Id { get; set; }
-    public int CustomerId { get; set; }
-    public Customer Customer { get; set; }
-    public int MovieId { get; set; }
-    public Movie Movie { get; set; }
-    public double Price { get; set; }
-    public DateTime OrderDate { get; set; }
+    public int? CustomerId { get; set; }
+    public Customer? Customer { get; set; }
+    public int? MovieId { get; set; }
+    public Movie? Movie { get; set; }
+    public double? Price { get; set; }
+    public DateTime? OrderDate { get; set; }
 }

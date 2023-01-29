@@ -7,6 +7,7 @@ public class GetMovieDetailQueryValidator : AbstractValidator<GetMovieDetailQuer
     public GetMovieDetailQueryValidator()
     {
         RuleFor(command => command.Id)
+            .NotNull()
             .GreaterThanOrEqualTo(0)
             .WithMessage("Movie id must be 0 or greater!");
     }

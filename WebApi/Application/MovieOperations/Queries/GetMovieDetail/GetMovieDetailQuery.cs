@@ -7,7 +7,7 @@ namespace WebApi.Application.MovieOperations.Queries;
 
 public class GetMovieDetailQuery
 {
-    public int Id { get; set; }
+    public int? Id { get; set; }
     private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
 
@@ -35,7 +35,7 @@ public class MovieDetailViewModel
 {
     public int Id { get; set; }
     public string? Title { get; set; }
-    public DateTime Year { get; set; }
+    public DateTime? Year { get; set; }
     public Director? Director { get; set; }
     public ICollection<Actor>? Actors { get; set; }
 }

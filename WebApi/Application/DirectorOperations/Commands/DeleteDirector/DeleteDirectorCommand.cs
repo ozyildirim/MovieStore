@@ -1,5 +1,4 @@
 using AutoMapper;
-using WebApi.DbOperations;
 
 namespace WebApi.Application.DirectorOperations.Commands;
 
@@ -7,7 +6,7 @@ public class DeleteDirectorCommand
 {
     private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
-    public int Id { get; set; }
+    public int? Id { get; set; }
 
     public DeleteDirectorCommand(IMovieStoreDbContext dbContext, IMapper mapper)
     {

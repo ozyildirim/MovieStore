@@ -8,6 +8,7 @@ public class GetCustomerOrdersQueryValidator : AbstractValidator<GetCustomerOrde
     public GetCustomerOrdersQueryValidator()
     {
         RuleFor(command => command.CustomerId)
+            .NotNull()
             .GreaterThanOrEqualTo(0)
             .WithMessage("Customer Id must be 0 or greater!");
     }

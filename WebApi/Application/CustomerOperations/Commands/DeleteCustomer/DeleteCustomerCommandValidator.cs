@@ -6,6 +6,9 @@ public class DeleteCustomerCommandValidator : AbstractValidator<DeleteCustomerCo
 {
     public DeleteCustomerCommandValidator()
     {
-        RuleFor(command => command.Id).NotNull().WithMessage("Customer id must be specified!");
+        RuleFor(command => command.Id)
+            .NotNull()
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Customer id must be specified!");
     }
 }

@@ -8,7 +8,7 @@ public class UpdateDirectorCommand
     private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
     public UpdateDirectorModel Model { get; set; }
-    public int Id { get; set; }
+    public int? Id { get; set; }
 
     public UpdateDirectorCommand(IMovieStoreDbContext dbContext, IMapper mapper)
     {

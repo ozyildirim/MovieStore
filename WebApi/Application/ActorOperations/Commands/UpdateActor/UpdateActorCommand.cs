@@ -1,5 +1,4 @@
 using AutoMapper;
-using WebApi.DbOperations;
 
 namespace WebApi.Application.ActorOperations.Commands;
 
@@ -8,7 +7,7 @@ public class UpdateActorCommand
     private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
     public UpdateActorModel Model { get; set; }
-    public int Id { get; set; }
+    public int? Id { get; set; }
 
     public UpdateActorCommand(IMovieStoreDbContext dbContext, IMapper mapper)
     {

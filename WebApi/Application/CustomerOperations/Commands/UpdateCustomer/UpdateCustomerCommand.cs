@@ -8,7 +8,7 @@ public class UpdateCustomerCommand
     private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
     public UpdateCustomerModel Model { get; set; }
-    public int Id { get; set; }
+    public int? Id { get; set; }
 
     public UpdateCustomerCommand(IMovieStoreDbContext dbContext, IMapper mapper)
     {

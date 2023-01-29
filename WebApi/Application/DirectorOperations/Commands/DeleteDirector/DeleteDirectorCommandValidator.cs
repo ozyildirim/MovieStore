@@ -6,6 +6,9 @@ public class DeleteDirectorCommandValidator : AbstractValidator<DeleteDirectorCo
 {
     public DeleteDirectorCommandValidator()
     {
-        RuleFor(command => command.Id).NotNull().WithMessage("Director id must be specified!");
+        RuleFor(command => command.Id)
+            .NotNull()
+            .GreaterThanOrEqualTo(0)
+            .WithMessage("Director id must be specified!");
     }
 }

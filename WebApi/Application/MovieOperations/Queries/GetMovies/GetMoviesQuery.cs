@@ -34,7 +34,7 @@ public class MovieViewModel
 {
     public int Id { get; set; }
     public string? Title { get; set; }
-    public DateTime Year { get; set; }
-    public Director Director { get; set; }
-    public ICollection<Actor> Actors { get; set; }
+    public DateTime? Year { get; set; }
+    public Director? Director { get; set; }
+    public ICollection<Actor>? Actors { get; set; }
 }

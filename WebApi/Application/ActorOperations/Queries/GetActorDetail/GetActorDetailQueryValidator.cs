@@ -7,6 +7,7 @@ public class GetActorDetailQueryValidator : AbstractValidator<GetActorDetailQuer
     public GetActorDetailQueryValidator()
     {
         RuleFor(command => command.Id)
+            .NotNull()
             .GreaterThanOrEqualTo(0)
             .WithMessage("Actor id must be 0 or greater!");
     }

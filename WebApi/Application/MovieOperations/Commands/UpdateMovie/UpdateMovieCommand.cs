@@ -8,7 +8,7 @@ public class UpdateMovieCommand
     private readonly IMovieStoreDbContext _dbContext;
     private readonly IMapper _mapper;
     public UpdateMovieModel Model { get; set; }
-    public int Id { get; set; }
+    public int? Id { get; set; }
 
     public UpdateMovieCommand(IMovieStoreDbContext dbContext, IMapper mapper)
     {
@@ -38,6 +38,6 @@ public class UpdateMovieModel
 {
     public string? Title { get; set; }
     public DateTime Year { get; set; }
-    public int DirectorId { get; set; }
-    public double Price { get; set; }
+    public int? DirectorId { get; set; }
+    public double? Price { get; set; }
 }
