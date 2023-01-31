@@ -19,12 +19,10 @@ public class GetMoviesQuery
     public List<MovieViewModel> Handle()
     {
         var movies = _dbContext.Movies
-            .Include(x => x.Director)
-            .Include(x => x.ActorMovies)
-            .ThenInclude(x => x.Actor)
-            .AsNoTracking()
-            .OrderBy(x => x.MovieId)
-            .ToList<Movie>();
+            .Include(m => m.Director)
+            .Include(m => m.MovieActors)
+            .ThenInclude(ma => ma.Actor)
+            .OrderBy(x => x.MovieId);
         List<MovieViewModel> list = _mapper.Map<List<MovieViewModel>>(movies);
         return list;
     }
@@ -35,6 +33,12 @@ public class MovieViewModel
     public int Id { get; set; }
     public string? Title { get; set; }
     public DateTime? Year { get; set; }
-    public Director? Director { get; set; }
-    public ICollection<Actor>? Actors { get; set; }
+    public string? Director { get; set; }
+    public ICollection<MovieActorVM>? Actors { get; set; }
+
+    public struct MovieActorVM
+    {
+        public int Id { get; set; }
+        public string FullName { get; set; }
+    }
 }

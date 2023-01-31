@@ -37,5 +37,12 @@ public class MovieDetailViewModel
     public string? Title { get; set; }
     public DateTime? Year { get; set; }
     public Director? Director { get; set; }
-    public ICollection<Actor>? Actors { get; set; }
+    public ICollection<MovieActor>? Actors { get; set; }
+
+    public struct MovieActor
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public string? Surname { get; set; }
+    }
 }

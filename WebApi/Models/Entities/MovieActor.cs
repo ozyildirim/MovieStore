@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApi.Models.Entities;
 
-public class ActorMovie
+public class MovieActor
 {
     public int MovieId { get; set; }
     public int ActorId { get; set; }

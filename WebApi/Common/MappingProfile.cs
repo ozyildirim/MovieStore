@@ -18,8 +18,22 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         // Actor Mappings
-        CreateMap<Actor, ActorViewModel>();
-        CreateMap<Actor, ActorDetailViewModel>();
+        //// GetActors
+        CreateMap<Actor, ActorViewModel>()
+            .ForMember(
+                dest => dest.Movies,
+                opt => opt.MapFrom(src => src.MovieActors.Select(ma => ma.Movie).ToList())
+            );
+        CreateMap<Movie, ActorViewModel.ActorMoviesVM>();
+
+        //// GetActorDetail
+        CreateMap<Actor, ActorDetailViewModel>()
+            .ForMember(
+                dest => dest.Movies,
+                opt => opt.MapFrom(src => src.MovieActors.Select(ma => ma.Movie).ToList())
+            );
+        CreateMap<Movie, ActorDetailViewModel>();
+        //// CreateActor
         CreateMap<CreateActorModel, Actor>();
 
         // Director Mappings
@@ -28,8 +42,25 @@ public class MappingProfile : Profile
         CreateMap<CreateDirectorModel, Director>();
 
         // Movie Mappings
-        CreateMap<Movie, MovieViewModel>();
-        CreateMap<Movie, MovieDetailViewModel>();
+        //// GetMovies
+        CreateMap<Movie, MovieViewModel>()
+            .ForMember(
+                dest => dest.Actors,
+                opt => opt.MapFrom(src => src.MovieActors.Select(ma => ma.Actor).ToList())
+            );
+        CreateMap<Actor, MovieViewModel.MovieActorVM>();
+        //// GetMovieDetail
+        CreateMap<Movie, MovieDetailViewModel>()
+            .ForMember(
+                dest => dest.Actors,
+                opt => opt.MapFrom(src => src.MovieActors.Select(ma => ma.Actor).ToList())
+            )
+            .ForMember(
+                dest => dest.Director,
+                opt => opt.MapFrom(src => src.Director.Name.ToString())
+            );
+
+        CreateMap<Actor, MovieDetailViewModel.MovieActor>();
         CreateMap<CreateMovieModel, Movie>();
 
         // Order Mappings
@@ -41,6 +72,5 @@ public class MappingProfile : Profile
         CreateMap<Customer, CustomerViewModel>();
         CreateMap<Customer, CustomerDetailViewModel>();
         CreateMap<CreateCustomerModel, Customer>();
-
     }
 }

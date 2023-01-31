@@ -24,6 +24,13 @@ public class DeleteMovieCommand
             throw new InvalidOperationException("Movie not found!");
         }
 
+        var movieActors = _dbContext.MovieActors.Any(x => x.MovieId == Id);
+
+        if (!movieActors)
+        {
+            throw new InvalidOperationException("Actor must be removed from movie list first!");
+        }
+
         movie.IsActive = false;
         _dbContext.SaveChanges();
     }

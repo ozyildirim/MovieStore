@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using WebApi.Models.Entities;
 
 namespace WebApi.DbOperations;
@@ -12,22 +13,28 @@ public class MovieStoreDbContext : DbContext, IMovieStoreDbContext
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Director> Directors { get; set; }
     public DbSet<Order> Orders { get; set; }
-    public DbSet<ActorMovie> ActorMovies { get; set; }
+    public DbSet<MovieActor> MovieActors { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Fluent API
-        modelBuilder.Entity<ActorMovie>().HasKey(am => new { am.ActorId, am.MovieId });
+        // Fluent APIhttps://github.com/ozyildirim
+        modelBuilder.Entity<MovieActor>(ConfigureMovieActor);
 
-        // modelBuilder
-        //     .Entity<Movie>()
-        //     .HasOne<Director>(s => s.Director)
-        //     .WithMany(d => d.Movies)
-        //     .HasForeignKey(s => s.DirectorId);
+        base.OnModelCreating(modelBuilder);
     }
 
-    public override int SaveChanges()
+    private void ConfigureMovieActor(EntityTypeBuilder<MovieActor> modelBuilder)
     {
-        return base.SaveChanges();
+        modelBuilder.HasKey(mc => new { mc.MovieId, mc.ActorId });
+        modelBuilder
+            .HasOne(mc => mc.Movie)
+            .WithMany(g => g.MovieActors)
+            .HasForeignKey(mg => mg.MovieId);
+        modelBuilder
+            .HasOne(mc => mc.Actor)
+            .WithMany(g => g.MovieActors)
+            .HasForeignKey(mg => mg.ActorId);
     }
+
+    public override int SaveChanges() => base.SaveChanges();
 }

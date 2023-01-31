@@ -38,10 +38,6 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "AWS.Logger.AspNetCore": {
-              "target": "Package",
-              "version": "[3.3.0, )"
-            },
             "AutoMapper": {
               "target": "Package",
               "version": "[12.0.1, )"

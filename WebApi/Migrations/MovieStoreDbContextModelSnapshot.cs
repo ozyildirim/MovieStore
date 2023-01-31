@@ -44,21 +44,6 @@ namespace WebApi.Migrations
                     b.ToTable("Actors");
                 });
 
-            modelBuilder.Entity("WebApi.Models.Entities.ActorMovie", b =>
-                {
-                    b.Property<int>("ActorId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("MovieId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("ActorId", "MovieId");
-
-                    b.HasIndex("MovieId");
-
-                    b.ToTable("ActorMovies");
-                });
-
             modelBuilder.Entity("WebApi.Models.Entities.Customer", b =>
                 {
                     b.Property<int>("CustomerId")
@@ -145,6 +130,21 @@ namespace WebApi.Migrations
                     b.ToTable("Movies");
                 });
 
+            modelBuilder.Entity("WebApi.Models.Entities.MovieActor", b =>
+                {
+                    b.Property<int>("MovieId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("ActorId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("MovieId", "ActorId");
+
+                    b.HasIndex("ActorId");
+
+                    b.ToTable("MovieActors");
+                });
+
             modelBuilder.Entity("WebApi.Models.Entities.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -177,25 +177,6 @@ namespace WebApi.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("WebApi.Models.Entities.ActorMovie", b =>
-                {
-                    b.HasOne("WebApi.Models.Entities.Actor", "Actor")
-                        .WithMany("ActorMovies")
-                        .HasForeignKey("ActorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("WebApi.Models.Entities.Movie", "Movie")
-                        .WithMany("ActorMovies")
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Actor");
-
-                    b.Navigation("Movie");
-                });
-
             modelBuilder.Entity("WebApi.Models.Entities.Movie", b =>
                 {
                     b.HasOne("WebApi.Models.Entities.Director", "Director")
@@ -203,6 +184,25 @@ namespace WebApi.Migrations
                         .HasForeignKey("DirectorId");
 
                     b.Navigation("Director");
+                });
+
+            modelBuilder.Entity("WebApi.Models.Entities.MovieActor", b =>
+                {
+                    b.HasOne("WebApi.Models.Entities.Actor", "Actor")
+                        .WithMany("MovieActors")
+                        .HasForeignKey("ActorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebApi.Models.Entities.Movie", "Movie")
+                        .WithMany("MovieActors")
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Actor");
+
+                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("WebApi.Models.Entities.Order", b =>
@@ -222,7 +222,7 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Models.Entities.Actor", b =>
                 {
-                    b.Navigation("ActorMovies");
+                    b.Navigation("MovieActors");
                 });
 
             modelBuilder.Entity("WebApi.Models.Entities.Director", b =>
@@ -232,7 +232,7 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Models.Entities.Movie", b =>
                 {
-                    b.Navigation("ActorMovies");
+                    b.Navigation("MovieActors");
                 });
 #pragma warning restore 612, 618
         }

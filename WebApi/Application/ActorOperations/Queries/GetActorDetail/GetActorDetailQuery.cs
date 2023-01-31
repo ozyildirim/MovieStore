@@ -19,7 +19,8 @@ public class GetActorDetailQuery
     public ActorDetailViewModel Handle()
     {
         var actor = _dbContext.Actors
-            .Include(x => x.ActorMovies)
+            .Include(x => x.MovieActors)
+            .ThenInclude(y => y.Movie)
             .SingleOrDefault(x => x.ActorId == Id);
 
         if (actor is null)
@@ -37,5 +38,11 @@ public class ActorDetailViewModel
     public int ActorId { get; set; }
     public string? Name { get; set; }
     public string? Surname { get; set; }
-    public ICollection<Movie>? Movies { get; set; }
+    public ICollection<ActorMoviesVM>? Movies { get; set; }
+
+    public struct ActorMoviesVM
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+    }
 }

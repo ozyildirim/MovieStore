@@ -10,5 +10,5 @@ public class Actor
     public string? Name { get; set; }
     public string? Surname { get; set; }
     public bool IsActive { get; set; } = true;
-    public ICollection<ActorMovie> ActorMovies { get; set; }
+    public ICollection<MovieActor> MovieActors { get; set; }
 }
